@@ -14,7 +14,7 @@
 ## then modify them accordingly to represent the new paths.               ##
 ##                                                                        ##
 ############################################################################
-prefix="/mingw32"
+prefix="/usr/local"
 exec_prefix="${prefix}"
 libdir="${exec_prefix}/lib"
 includedir="${prefix}/include"
@@ -42,12 +42,12 @@ dash_c="no"
 get_output_file="no"
 
 SHOW="eval"
-CCBASE="i686-w64-mingw32-gcc"
-CLINKERBASE="i686-w64-mingw32-gcc"
+CCBASE="c:/Rtools/mingw_32/bin/gcc -I/mingw32/include -DCURL_STATICLIB -DLIBXML_STATIC"
+CLINKERBASE="c:/Rtools/mingw_32/bin/gcc -I/mingw32/include -DCURL_STATICLIB -DLIBXML_STATIC"
 CFLAGS=" -march=i686 -mtune=generic -O2 -pipe "
 CPPFLAGS="-D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DSWAP "
 LDFLAGS="-pipe"
-LIBS="-ljpeg -lz "
+LIBS="-ljpeg -lz -L/mingw32/lib -L/usr/local/lib -lxdr"
 
 CC="${HDF4_CC:-$CCBASE}"
 CLINKER="${HDF4_CLINKER:-$CLINKERBASE}"
